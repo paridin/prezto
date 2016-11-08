@@ -11,3 +11,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export PATH=$HOME/.local/bin:/Applications/Postgres.app/Contents/Versions/9.6/bin:$PATH:/usr/X11/bin
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel/python
+source /usr/local/bin/virtualenvwrapper.sh
+
+fpath=($HOME/.zprezto/modules/completion/external/src $fpath)
