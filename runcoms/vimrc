@@ -59,10 +59,11 @@ augroup vimrcEx
 augroup END
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
+" set tabstop=2
+" set softtabstop=0
+" set shiftwidth=2
+" set shiftround
+" set expandtab smarttab
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -158,3 +159,5 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+set ts=2 sw=2 sts=2 et
