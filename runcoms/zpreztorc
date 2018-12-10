@@ -36,6 +36,7 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'osx' \
   'git' \
+  'elixir' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
@@ -98,7 +99,7 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'steeef'
+zstyle ':prezto:module:prompt' theme 'paridin'
 
 #
 # Ruby
@@ -106,7 +107,6 @@ zstyle ':prezto:module:prompt' theme 'steeef'
 
 # Auto switch the Ruby version on directory change.
 # zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
-
 #
 # Screen
 #
