@@ -11,6 +11,9 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -160,6 +163,7 @@ if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
+" changing tabs by spaces to make code better.
 set ts=2 sw=2 sts=2 et
 " Run python
 nnoremap <silent> <F5> :!python %<CR>

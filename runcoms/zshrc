@@ -16,14 +16,46 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-# Includes Android SDK Support for mobile developers
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/usr/X11/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+if [[ -d $HOME/.local/bin ]]; then
+  PATH=$HOME/.local/bin:$PATH:
+  LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
+fi
 
+if [[ -d /usr/X11/bin ]]; then
+  PATH=$PATH:/usr/X11/bin
+fi
+
+# Includes Android SDK Support for mobile developers
+if [[ -d $HOME/Library/Android/sdk ]]; then
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+fi
+
+# python stuff
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel/python
+if [[ -f /usr/local/bin/python3 ]]; then
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+elif [[ -f $HOME/.local/bin/python3 ]]; then
+  export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/bin/python3
+fi
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+elif [[ -f $HOME/.local/bin/virtualenvwrapper.sh ]]; then
+  source $HOME/.local/bin/virtualenvwrapper.sh
+fi
+
+if [[ -f $HOME/.xmodmap-$(uname -n) ]]; then
+  xmodmap $HOME/.xmodmap-$(uname -n)
+fi
 
 fpath=($HOME/.zprezto/modules/completion/external/src $fpath)
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export PATH=$PATH
 
 # Secret configs
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/secret.zsh" ]]; then
