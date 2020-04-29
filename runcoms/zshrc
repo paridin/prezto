@@ -61,3 +61,4 @@ export PATH=$PATH
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/secret.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/secret.zsh"
 fi
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
